@@ -1,5 +1,3 @@
-package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartPage {
-
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -23,32 +20,15 @@ public class CartPage {
     }
 
     public List<String> getItemNames() {
-
-        wait.until(
-                ExpectedConditions.visibilityOfElementLocated(itemNames)
-        );
-
-        List<WebElement> elements =
-                driver.findElements(itemNames);
-
-        System.out.println("Found items: " + elements.size());
-
+        wait.until(ExpectedConditions.visibilityOfElementLocated(itemNames));
         List<String> names = new ArrayList<>();
-
-        for (WebElement element : elements) {
+        for (WebElement element : driver.findElements(itemNames)) {
             names.add(element.getText());
         }
-
         return names;
     }
+
     public void checkout() {
-        System.out.println(driver.getCurrentUrl());
-        System.out.println(driver.getTitle());
-
-        wait.until(
-
-                ExpectedConditions.elementToBeClickable(checkoutButton)
-
-        ).click();
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutButton)).click();
     }
 }

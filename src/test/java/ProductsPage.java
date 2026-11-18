@@ -1,14 +1,10 @@
-package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class ProductsPage {
-
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -22,23 +18,15 @@ public class ProductsPage {
     }
 
     public String getTitle() {
-        return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(title)
-        ).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(title)).getText();
     }
 
     public void addToCart(String productId) {
-        wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.id("add-to-cart-" + productId)
-                )
-        ).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-cart-" + productId))).click();
     }
 
     public String getCartCount() {
-        return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(cartBadge)
-        ).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(cartBadge)).getText();
     }
 
     public void openCart() {

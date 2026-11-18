@@ -1,14 +1,10 @@
-package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class CheckoutPage {
-
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -25,27 +21,17 @@ public class CheckoutPage {
     }
 
     public void fillDetails(String first, String last, String zip) {
-
-        wait.until(
-                ExpectedConditions.visibilityOfElementLocated(firstName)
-        ).sendKeys(first);
-
+        wait.until(ExpectedConditions.visibilityOfElementLocated(firstName)).sendKeys(first);
         driver.findElement(lastName).sendKeys(last);
         driver.findElement(postalCode).sendKeys(zip);
         driver.findElement(continueButton).click();
     }
 
     public void finish() {
-
-        wait.until(
-                ExpectedConditions.elementToBeClickable(finishButton)
-        ).click();
+        wait.until(ExpectedConditions.elementToBeClickable(finishButton)).click();
     }
 
     public String getConfirmation() {
-
-        return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(confirmation)
-        ).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(confirmation)).getText();
     }
 }
