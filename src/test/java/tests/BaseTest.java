@@ -29,6 +29,13 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
 
         options.addArguments("--incognito");
+        boolean headless = Boolean.parseBoolean(System.getProperty("headless", "false"));
+        if (headless) {
+            options.addArguments("--headless=new");
+            options.addArguments("--window-size=1920,1080");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+        }
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
 
