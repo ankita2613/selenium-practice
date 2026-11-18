@@ -1,5 +1,6 @@
-<<<<<<< HEAD
 # Selenium Practice: Sauce Demo Test Automation
+
+![Selenium tests](https://github.com/ankita2613/selenium-practice/actions/workflows/tests.yml/badge.svg)
 
 Automated UI tests for https://www.saucedemo.com
 
